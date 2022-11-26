@@ -1,0 +1,93 @@
+.exercise {
+    padding-top: 70px;
+    color: #fff;
+}
+h1{
+    opacity: .8;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+input{
+    color: #282c34;
+    font-weight: bolder;
+    background: gray;
+    width: calc(50px + (100 - 50) * (100vw - 320px) / (1200 - 320));
+    border-radius: 10px 0 0 10px;
+    border: 0;
+    padding: 20px;
+    text-align: center;
+    font-size: calc(10px + (20 - 10) * (100vw - 320px) / (1200 - 320));
+}
+
+input:focus{
+    background: #000;
+    color: #fff;
+    outline: 1px solid gray;
+    padding: 19px 20px;
+}
+
+button{
+    cursor: pointer;
+    width: auto;
+    border-radius: 0 10px 10px 0;
+    border: 0;
+    padding: 20px 5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: calc(10px + (20 - 10) * (100vw - 320px) / (1200 - 320));
+    color: grey;
+}
+
+button:hover{
+    background: #000;
+}
+
+.exercise .link button{
+    font-weight: bold;
+    background: #282c34;
+    color: gray;
+}
+
+.exercise-block-action{
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.exercise p{
+    color: grey;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1200 - 320));
+}
+
+.block-action-title{
+    width: 250px;
+}
+
+@media (max-width: 600px) {
+    p{
+        flex-direction: column;
+    }
+    .exercise-block-action{
+        flex-direction: column;
+    }
+    .exercise input{
+        padding: 30px 60px;
+    }
+    .exercise button{
+        padding: 30px 15px;
+    }
+}
+
+.but-menu{
+    color: #fff;
+}
+
+.block-buttons{
+    font-size: calc(16px + (28 - 16) * (100vw - 320px) / (1200 - 320));
+    width: 250px;
+}
