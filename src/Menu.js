@@ -6,10 +6,11 @@ import {Link} from 'react-router-dom';
 export default class Menu extends Component {
     constructor(props) {
         super(props)
-
+        let days = localStorage.getItem('days');
         this.state = {
             menu: true,
-            matches: false
+            matches: false,
+            days:  days ? true : false
         };
 
         this.stateMenu = this.stateMenu.bind(this);
@@ -26,7 +27,6 @@ export default class Menu extends Component {
 
     componentWillMount() {
         const match = window.matchMedia(`(max-width: 768px)`);
-
         if (!match.matches) {
             this.setState(state => ({
                 menu: true,
@@ -46,6 +46,7 @@ export default class Menu extends Component {
     }
 
     render() {
+        const days = localStorage.getItem('days');
         if (this.state.menu && !this.state.matches) {
             return (
                 <div className='navigation'>
@@ -56,9 +57,9 @@ export default class Menu extends Component {
                                 <li>
                                     <Link className="route" onClick={this.eventType(Event)} to="/">main</Link>
                                 </li>
-                                <li>
-                                    <Link className="route" to="/days-training">training</Link>
-                                </li>
+                                {
+                                    this.state.days ? <li><Link className="route" to="/days-training">training</Link></li> : false
+                                }
                                 <li>
                                     <Link className="route" to="/result">results</Link>
                                 </li>

@@ -12,7 +12,7 @@ export default class Lcomponent extends Component {
     }
 
     newTraining(){
-        localStorage.removeItem('exercise');
+        localStorage.removeItem('repetition');
         localStorage.removeItem('results');
         localStorage.removeItem('days');
     }
@@ -34,6 +34,15 @@ export default class Lcomponent extends Component {
                         </div>
                         <div>
                             Date: {item.date.day}.{item.date.month}.{item.date.year}
+                        </div>
+                        <div>
+                            Number of repetitions: {item.numberOfRepetitions}
+                        </div>
+                        <div>
+                            Number of sets: {item.numberOfSets}
+                        </div>
+                        <div>
+                            Repetition done: {item.repetitionDone}
                         </div>
                         <div>
                             Amount done: {item.amountDone}

@@ -17,7 +17,7 @@ export default class Mcomponent extends Component {
                 <Routes>
                     <Route path="/" element={ <Maincomponent />}></Route>
                     <Route path="/days-training" element={< Dcomponent />}></Route>
-                    <Route path="/train/:day" element={< Rcomponent />}></Route>
+                    <Route path="/train/:day/:nameTraining/:numberOfSets/:numberOfRepetitions" element={< Rcomponent />}></Route>
                     <Route path="/result" element={ <Lcomponent />}></Route>
                 </Routes>
             </div>

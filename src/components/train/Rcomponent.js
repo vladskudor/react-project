@@ -21,22 +21,27 @@ export default class Rcomponent extends Component {
     }
 
     done() {
-        let results = localStorage.getItem('results');
-        let days = JSON.parse(localStorage.getItem('days'));
-        let exercise = JSON.parse(localStorage.getItem('exercise'));
-        let training = {
-            nameOfTraining: exercise,
-            day: days.length++,
+        let training = JSON.parse(localStorage.getItem('training'));
+        // let results = localStorage.getItem('results');
+        // let days = JSON.parse(localStorage.getItem('days'));
+        let repetition = JSON.parse(localStorage.getItem('repetition'));
+        let trainingResult = {
+            nameOfTraining: training.nameTraining,
+            numberOfSets: training.numberOfSets,
+            numberOfRepetitions: training.numberOfRepetitions,
+            day: training.day,
             date: {
                 day: new Date().getDay(),
                 month: new Date().getMonth(),
                 year: new Date().getFullYear(),
             },
-            amountDone: this.state.amountDone
+            amountDone: this.state.amountDone,
+            repetitionDone: repetition,
+            img: training.img
         };
-
-        const obj = [...this.state.obj , training];
+        const obj = [...this.state.obj , trainingResult];
         this.setState({obj: obj});
+        console.log(obj);
         localStorage.setItem('results', JSON.stringify(obj))
     }
 
@@ -46,9 +51,8 @@ export default class Rcomponent extends Component {
                 <div className="exercise-main-block">
                     <div>
                         <h1>
-                            training
                             <div>
-                                Day <Tcomponent/>
+                                <Tcomponent/>
                             </div>
                         </h1>
                     </div>
@@ -65,7 +69,6 @@ export default class Rcomponent extends Component {
                                         Done
                                     </button>
                                 </Link>
-
                             </label>
                         </div>
                     </div>

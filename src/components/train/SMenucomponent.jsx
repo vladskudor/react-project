@@ -13,7 +13,7 @@ export default function SimpleMenu() {
 
     const handleClose = (event) => {
         setAnchorEl(null);
-        localStorage.setItem('exercise' , JSON.stringify(event.target.textContent))
+        localStorage.setItem('repetition' , JSON.stringify(event.target.textContent))
     };
 
     return (
@@ -30,10 +30,16 @@ export default function SimpleMenu() {
                 onClose={handleClose}
             >
                 <div className="block-buttons">
-                    <MenuItem onClick={handleClose}>Breast</MenuItem>
-                    <MenuItem onClick={handleClose}>Shoulders</MenuItem>
-                    <MenuItem onClick={handleClose}>Hands</MenuItem>
-                    <MenuItem onClick={handleClose}>Legs</MenuItem>
+                    <MenuItem onClick={handleClose}>1-repetition</MenuItem>
+                    <MenuItem onClick={handleClose}>2-repetition</MenuItem>
+                    <MenuItem onClick={handleClose}>3-repetition</MenuItem>
+                    <MenuItem onClick={handleClose}>4-repetition</MenuItem>
+                    <MenuItem onClick={handleClose}>5-repetition</MenuItem>
+                    <MenuItem onClick={handleClose}>6-repetition</MenuItem>
+                    <MenuItem onClick={handleClose}>7-repetition</MenuItem>
+                    <MenuItem onClick={handleClose}>8-repetition</MenuItem>
+                    <MenuItem onClick={handleClose}>9-repetition</MenuItem>
+                    <MenuItem onClick={handleClose}>10-repetition</MenuItem>
                 </div>
             </Menu>
         </div>
