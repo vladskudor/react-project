@@ -24,8 +24,7 @@ export default class Menu extends Component {
         }))
     }
 
-
-    componentWillMount() {
+    componentDidMount() {
         const match = window.matchMedia(`(max-width: 768px)`);
         if (!match.matches) {
             this.setState(state => ({
@@ -51,15 +50,18 @@ export default class Menu extends Component {
             return (
                 <div className='navigation'>
                     <img src={image} alt="img"/>
+                    <div>
+                        <h2>training </h2>
+                    </div>
                     <nav>
                         <div>
                             <ul>
                                 <li>
                                     <Link className="route" onClick={this.eventType(Event)} to="/">main</Link>
                                 </li>
-                                {
-                                    this.state.days ? <li><Link className="route" to="/days-training">training</Link></li> : false
-                                }
+                                <li>
+                                    <Link className="route" to="/days-training">training</Link>
+                                </li>
                                 <li>
                                     <Link className="route" to="/result">results</Link>
                                 </li>
@@ -71,11 +73,13 @@ export default class Menu extends Component {
                     </nav>
                 </div>
             )
-        } else {
+        }
+        else {
             return (
                 <div className='navigation'>
+                    <img src={image} alt='img'/>
                     <div>
-                        <img src={image} alt='img'/>
+                        <h2>training </h2>
                     </div>
                     <div className='burger-block' onClick={this.stateMenu}>
                         <Burger />

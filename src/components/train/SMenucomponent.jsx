@@ -18,8 +18,8 @@ export default function SimpleMenu() {
 
     return (
         <div>
-            <Button style={{color: 'grey', background: '#282c34' , fontSize: '28px'}} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                choose exercise
+            <Button style={{color: 'grey', background: '#282c34' , fontSize: '24px' , padding: '10px'}} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                approach
             </Button>
 
             <Menu
@@ -30,16 +30,16 @@ export default function SimpleMenu() {
                 onClose={handleClose}
             >
                 <div className="block-buttons">
-                    <MenuItem onClick={handleClose}>1-repetition</MenuItem>
-                    <MenuItem onClick={handleClose}>2-repetition</MenuItem>
-                    <MenuItem onClick={handleClose}>3-repetition</MenuItem>
-                    <MenuItem onClick={handleClose}>4-repetition</MenuItem>
-                    <MenuItem onClick={handleClose}>5-repetition</MenuItem>
-                    <MenuItem onClick={handleClose}>6-repetition</MenuItem>
-                    <MenuItem onClick={handleClose}>7-repetition</MenuItem>
-                    <MenuItem onClick={handleClose}>8-repetition</MenuItem>
-                    <MenuItem onClick={handleClose}>9-repetition</MenuItem>
-                    <MenuItem onClick={handleClose}>10-repetition</MenuItem>
+                    <MenuItem onClick={handleClose}>1-approach</MenuItem>
+                    <MenuItem onClick={handleClose}>2-approach</MenuItem>
+                    <MenuItem onClick={handleClose}>3-approach</MenuItem>
+                    <MenuItem onClick={handleClose}>4-approach</MenuItem>
+                    <MenuItem onClick={handleClose}>5-approach</MenuItem>
+                    <MenuItem onClick={handleClose}>6-approach</MenuItem>
+                    <MenuItem onClick={handleClose}>7-approach</MenuItem>
+                    <MenuItem onClick={handleClose}>8-approach</MenuItem>
+                    <MenuItem onClick={handleClose}>9-approach</MenuItem>
+                    <MenuItem onClick={handleClose}>10-approach</MenuItem>
                 </div>
             </Menu>
         </div>

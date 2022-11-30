@@ -1,11 +1,10 @@
-h1 {
-    color: grey;
+h1{
+    color: #808080;
     text-align: center;
     padding: 0;
     margin: 0;
     font-size: calc(14px + (28 - 14) * (100vw - 320px) / (1200 - 320));
 }
-
 .button-block .link {
     cursor: pointer;
     transition: .5s;
@@ -19,17 +18,14 @@ h1 {
     text-transform: uppercase;
     font-weight: 800;
 }
-
 .button-block .link:hover {
-    background: grey;
+    background: #808080;
     color: #000;
 }
-
 @media (max-width: 600px) {
     .button-block {
         margin: 50px 0 0 0;
     }
-
     .button-block .link {
         right: 0;
         top: 40%;
@@ -37,34 +33,29 @@ h1 {
         text-align: center;
     }
 }
-
 .main-content {
     position: relative;
     width: 100%;
 }
-
 .main-block {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 90vh;
 }
-
 @media (max-width: 600px) {
     .main-content, .main-block {
         justify-content: center;
         flex-direction: column;
     }
 }
-
 .block-title {
-    background: grey;
+    background: #808080;
     color: #000;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
 }
-
 .block-title p {
     margin: 1%;
     font-size: calc(8px + (14 - 8) * (100vw - 320px) / (1200 - 320));

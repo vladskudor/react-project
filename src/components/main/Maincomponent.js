@@ -12,12 +12,7 @@ export default class Tcomponent extends Component {
         this.newDayTraining = this.newDayTraining.bind(this);
     }
 
-    componentWillMount() {
-
-    }
-
     newDayTraining() {
-        // let days = JSON.parse(localStorage.getItem('days'));
         this.setState({days: [...this.state.days, this.state.days.length++]});
         localStorage.setItem('days', JSON.stringify(this.state.days))
     }
@@ -32,7 +27,7 @@ export default class Tcomponent extends Component {
                                 <h1>online training</h1>
                             </div>
                             <div>
-                                <p>free YouTube workout programs</p>
+                                <p>free workout program</p>
                             </div>
                         </div>
                     </div>

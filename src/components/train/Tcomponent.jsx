@@ -12,21 +12,37 @@ export default function Tcomponent() {
         };
     useEffect(() => {
        localStorage.setItem('training' , JSON.stringify(objTraining));
-       console.log(objTraining);
     });
     return (
         <div>
-            <div>
-                day-{day}
+            <div className="training-info">
+                <div>
+                    {nameTraining}
+                </div>
             </div>
-            <div>
-                training {nameTraining}
+            <div className="training-info">
+                <div>
+                    day-
+                </div>
+                <div>
+                    {day}
+                </div>
             </div>
-            <div>
-                number of sets: {numberOfSets}
+            <div className="training-info">
+                <div>
+                    number of sets:
+                </div>
+                <div>
+                    {numberOfSets}
+                </div>
             </div>
-            <div>
-                number of Repetiotions: {numberOfRepetitions}
+            <div className="training-info">
+                <div>
+                    number of Repetiotions:
+                </div>
+                <div>
+                    {numberOfRepetitions}
+                </div>
             </div>
         </div>
 

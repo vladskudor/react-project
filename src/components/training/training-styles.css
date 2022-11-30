@@ -1,5 +1,4 @@
 .block-day {
-    height: 70vh;
     overflow: scroll;
     opacity: .8;
     display: flex;
@@ -9,91 +8,91 @@
     text-align: center;
     padding: calc(5% + (10 - 5) * (100vw - 320px) / (1200 - 320));
 }
-
+@media (min-width: 600px) {
+    .block-day{
+        height: 70vh;
+    }
+}
 .block-day h3 {
     text-transform: uppercase;
     font-weight: 800;
 }
-
 .block-day img{
     width: 100%;
-    height: 100px;
+    height: 150px;
 }
-
-.day {
+.day{
     width: 100%;
     background: #000;
-    color: grey;
-    outline: 2px solid grey;
+    color: #808080;
+    outline: 2px solid #808080;
     border-radius: 10px;
     padding: 2%;
 }
-
 @media (max-width: 600px) {
     .day {
         padding: 1%;
-        width: 70%;
     }
     .block-day img{
         width: 100%;
-        height: 100%;
+        height: 70%;
     }
 }
-
 .current-day {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
-
 .current-day button {
     cursor: pointer;
     border-radius: 10px;
     width: 50%;
 }
-
 .current-day p {
     margin: 0 10px;
 }
-
+@media (max-width: 800px) {
+    .current-day {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
 @media (max-width: 600px) {
     .current-day {
         display: flex;
         flex-direction: column;
     }
 }
-
 .days-route{
+    cursor: pointer;
     margin: 10% 0;
     display: grid;
     grid-auto-rows: 100%;
     place-items: center;
     min-height: 100px;
 }
-
 .enter-day {
     cursor: pointer;
     border-radius: 10px;
     display: inline-block;
     width: 90%;
     height: 100%;
-    padding: 5% 0;
     background: #282c34;
-    color: grey;
+    color: #808080;
     text-decoration: none;
     font-weight: bolder;
-    font-size: calc(10px + (14 - 10) * (100vw - 320px) / (1200 - 320));
+    font-size: calc(12px + (14 - 12) * (100vw - 320px) / (1200 - 320));
     transition: .3s;
 }
-
 .block-inform-of-training{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 80px;
 }
-
 .enter-day:hover {
     background: #000;
     color: #282c34;
 }
-
 @media (max-width: 600px) {
     .days-route{
         margin: 1% 0;
@@ -101,10 +100,15 @@
         grid-auto-rows: 100%;
     }
 }
-
-.link{
+.link-start{
+    display: inline-block;
+    width: 100%;
+    padding: 10% 0;
     text-transform: uppercase;
     text-decoration: none;
-    color: #eee;
+    color: #808080;
     background: #282c34;
+    border-bottom: 3px solid #000;
+    border-radius: 0 0 10px 10px;
+    letter-spacing: 2px;
 }

@@ -22,8 +22,6 @@ export default class Rcomponent extends Component {
 
     done() {
         let training = JSON.parse(localStorage.getItem('training'));
-        // let results = localStorage.getItem('results');
-        // let days = JSON.parse(localStorage.getItem('days'));
         let repetition = JSON.parse(localStorage.getItem('repetition'));
         let trainingResult = {
             nameOfTraining: training.nameTraining,
@@ -39,6 +37,7 @@ export default class Rcomponent extends Component {
             repetitionDone: repetition,
             img: training.img
         };
+        if (!repetition || this.state.amountDone === 0) return;
         const obj = [...this.state.obj , trainingResult];
         this.setState({obj: obj});
         console.log(obj);
@@ -49,6 +48,7 @@ export default class Rcomponent extends Component {
         return (
             <div className="exercise">
                 <div className="exercise-main-block">
+                    <h1>You need to do!</h1>
                     <div>
                         <h1>
                             <div>

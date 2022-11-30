@@ -1,6 +1,13 @@
 .App {
+  position: relative;
   height: 100vh;
   text-align: center;
+}
+
+main{
+  position: absolute;
+  top: 60px;
+  width: 100vw;
 }
 
 .App-logo {
@@ -14,6 +21,9 @@
 }
 
 .App-header {
+  z-index: 9999;
+  position: fixed;
+  width: 100vw;
   background-color: #282c34;
   color: white;
   min-height: 50px;

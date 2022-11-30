@@ -1,5 +1,5 @@
 .exercise {
-    padding-top: 70px;
+    padding: 70px 0 0 0;
     color: #fff;
 }
 h1{
@@ -11,7 +11,7 @@ h1{
 input{
     color: #282c34;
     font-weight: bolder;
-    background: gray;
+    background: #808080;
     width: calc(50px + (100 - 50) * (100vw - 320px) / (1200 - 320));
     border-radius: 10px 0 0 10px;
     border: 0;
@@ -19,14 +19,12 @@ input{
     text-align: center;
     font-size: calc(10px + (20 - 10) * (100vw - 320px) / (1200 - 320));
 }
-
 input:focus{
     background: #000;
     color: #fff;
-    outline: 1px solid gray;
+    outline: 1px solid #808080;
     padding: 19px 20px;
 }
-
 button{
     cursor: pointer;
     width: auto;
@@ -36,38 +34,32 @@ button{
     text-align: center;
     text-transform: uppercase;
     font-size: calc(10px + (20 - 10) * (100vw - 320px) / (1200 - 320));
-    color: grey;
+    color: #808080;
 }
-
 button:hover{
     background: #000;
 }
-
 .exercise .link button{
     font-weight: bold;
     background: #282c34;
-    color: gray;
+    color: #808080;
 }
-
 .exercise-block-action{
     height: 50vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
 .exercise p{
-    color: grey;
+    color: #808080;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1200 - 320));
 }
-
 .block-action-title{
     width: 250px;
 }
-
 @media (max-width: 600px) {
     p{
         flex-direction: column;
@@ -82,12 +74,30 @@ button:hover{
         padding: 30px 15px;
     }
 }
-
 .but-menu{
     color: #fff;
 }
-
 .block-buttons{
+    background: #282c34;
+    color: #808080;
+    font-weight: bolder;
     font-size: calc(16px + (28 - 16) * (100vw - 320px) / (1200 - 320));
     width: 250px;
+}
+.training-info{
+    width: 50%;
+    margin: 0 auto;
+    font-size: calc(12px + (20 - 12) * (100vw - 320px) / (1200 - 320));
+    display: flex;
+    justify-content: space-between;
+}
+.training-info:first-child{
+    margin: 5% auto 0;
+}
+@media(max-width: 600px) {
+    .training-info{
+        width: 90%;
+        justify-content: flex-start;
+        font-size: calc(8px + (16 - 8) * (100vw - 320px) / (1200 - 320));
+    }
 }

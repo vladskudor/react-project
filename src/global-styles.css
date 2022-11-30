@@ -5,6 +5,22 @@ h1{
     margin: 0;
 } 
 
+h2{
+    color: grey;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    margin: 0 0 0 80%;
+    width: 100%;
+    font-style: italic;
+}
+
+@media (max-width: 1200px) {
+    h2{
+        margin: 0;
+        font-size: calc(12px + (28 - 12) * (100vw - 320px) / (1200 - 320));
+    }
+}
+
 span{
     margin: 0 0 0 1%;
 }
@@ -39,6 +55,9 @@ img{
     padding: 15px 50px;
     text-decoration: none;
     color: grey;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
 }
 
 .background-block img{
@@ -67,15 +86,16 @@ nav ul{
 @media(max-width: 768px) {
     nav ul{
         z-index: 1;
-        width: 100%;
+        width: auto;
         position: absolute;
-        left: 0;
+        right: 0;
         top: 70px;
         flex-direction: column;
         background: #282c34;
+        border-radius: 0 0 0 10px;
     }
     ul li{
-        width: 100%;
+        width: 100% !important;
         text-align: center;
     }
 
@@ -117,11 +137,12 @@ nav ul{
 }
 
 .burger-menu span{
+    color: red;
     cursor: pointer;
     width: 50px;
     display: flex;
     flex-direction: column;
-    border-bottom: 5px solid #eee;
+    border-bottom: 5px solid #808080;
     border-radius: 10px;
     margin: 8px auto;
 }
