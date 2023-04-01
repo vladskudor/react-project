@@ -1,6 +1,5 @@
 .block-day {
     overflow: scroll;
-    opacity: .8;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
@@ -23,9 +22,7 @@
 }
 .day{
     width: 100%;
-    background: #000;
     color: #808080;
-    outline: 2px solid #808080;
     border-radius: 10px;
     padding: 2%;
 }
@@ -69,7 +66,7 @@
     place-items: center;
     min-height: 100px;
 }
-.enter-day {
+.enter-day{
     cursor: pointer;
     border-radius: 10px;
     display: inline-block;
@@ -82,16 +79,15 @@
     font-size: calc(12px + (14 - 12) * (100vw - 320px) / (1200 - 320));
     transition: .3s;
 }
+.enter-day:hover{
+    box-shadow: 0 0 15px #808080;
+}
 .block-inform-of-training{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 80px;
-}
-.enter-day:hover {
-    background: #000;
-    color: #282c34;
 }
 @media (max-width: 600px) {
     .days-route{
@@ -101,6 +97,7 @@
     }
 }
 .link-start{
+    cursor: pointer;
     display: inline-block;
     width: 100%;
     padding: 10% 0;
@@ -111,4 +108,9 @@
     border-bottom: 3px solid #000;
     border-radius: 0 0 10px 10px;
     letter-spacing: 2px;
+}
+
+.link-start:hover {
+    background: #000;
+    color: #282c34;
 }

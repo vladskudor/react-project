@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import './training-styles.css';
-import {Link} from 'react-router-dom';
-import img1 from './images-traning/4.jpg'
+import img1 from './images-traning/1.jpg'
 import img2 from './images-traning/2.jpg'
 import img3 from './images-traning/3.jpg'
-import img4 from './images-traning/1.jpg'
+import img4 from './images-traning/4.jpg'
 import img5 from './images-traning/5.jpg'
 import img6 from './images-traning/6.jpg'
 import img7 from './images-traning/7.jpg'
 import img8 from './images-traning/8.jpg'
 import img9 from './images-traning/9.jpg'
 import img10 from './images-traning/10.jpg'
+import Train from './Train';
 
 export default class Dcomponent extends Component {
     constructor(props) {
@@ -19,7 +19,7 @@ export default class Dcomponent extends Component {
             days: [
                 {
                     day: 1,
-                    nameTraining: 'bench press',
+                    nameTraining: 'triceps pull block',
                     numberOfSets: 5,
                     numberOfRepetitions: 10,
                     img: img1
@@ -40,7 +40,7 @@ export default class Dcomponent extends Component {
                 },
                 {
                     day: 4,
-                    nameTraining: 'triceps pull block',
+                    nameTraining: 'bench press',
                     numberOfSets: 5,
                     numberOfRepetitions: 10,
                     img: img4
@@ -91,6 +91,19 @@ export default class Dcomponent extends Component {
         }
     }
 
+    componentDidMount() {
+        let training = JSON.parse(localStorage.getItem('training')) || {};
+        localStorage.setItem('currentTraining', JSON.stringify(training));
+        const {days} = this.state;
+        let typeTrining;
+        days.forEach((day) => {
+            if (day === training.day) {
+                typeTrining = day;
+                localStorage.setItem('currentTraining', JSON.stringify(typeTrining));
+            }
+        })
+    }
+
     render() {
         const {days} = this.state;
         return (
@@ -104,27 +117,7 @@ export default class Dcomponent extends Component {
                             <div className='current-day'>
                                 {days.map((item, index) => {
                                     return (
-                                        <div key={index}>
-                                            <div className="days-route">
-                                                <div style={{textTransform: 'uppercase'}} className="enter-day">
-                                                    <div className="block-inform-of-training">
-                                                        <div>
-                                                            Day: {item.day}
-                                                        </div>
-                                                        <div>
-                                                            {item.nameTraining}
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <img src={item.img} alt=""/>
-                                                    </div>
-                                                    <Link className="link-start"
-                                                          to={`/train/${item.day}/${item.nameTraining}/${item.numberOfSets}/${item.numberOfRepetitions}`}>
-                                                        start
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       <Train item={item} index={index} /> 
                                     )
                                 })}
                             </div>

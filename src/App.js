@@ -1,14 +1,14 @@
 import './App.css';
 import './global-styles.css';
 import Mcomponent from './Mcomponent';
-import Menu from './Menu';
-import background from './background-image.jpg'
+import Navbar from './Menu';
+import background from './background-image.jpg';
 
 function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <Menu />
+                <Navbar />
             </header>
             <main>
                 <Mcomponent />

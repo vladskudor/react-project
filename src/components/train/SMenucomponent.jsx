@@ -13,7 +13,7 @@ export default function SimpleMenu() {
 
     const handleClose = (event) => {
         setAnchorEl(null);
-        localStorage.setItem('repetition' , JSON.stringify(event.target.textContent))
+        localStorage.setItem('repetition' , JSON.stringify(event.target.textContent));
     };
 
     return (
@@ -21,7 +21,6 @@ export default function SimpleMenu() {
             <Button style={{color: 'grey', background: '#282c34' , fontSize: '24px' , padding: '10px'}} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                 approach
             </Button>
-
             <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}

@@ -1,5 +1,11 @@
 let express = require('express');
-const bodyParser = require('body-parser')
+let MongoClient = require('mongodb').MongoClient;
+const objectId = require('mongodb').ObjectId;
+const bodyParser = require('body-parser');
+
+mongoClient = new MongoClient('mongodb://localhost:27017/');
+
+let dbClient;
 
 const app = express();
 app.use(bodyParser.json());
@@ -11,7 +17,16 @@ app.use(function(req, res, next) {
     next();
 });
 
-const exercise = [
+mongoClient.connect((err , client) => {
+    if(err) console.log(err);
+    dbClient = client;
+    app.locals.collection = client.db('reactDataBase').collection('reactDb');
+    app.listen(9000, () => {
+        console.log('Connected to data base!');
+    })
+});
+
+const exercises = [
     {
         day: 1,
         nameTraining: 'bench press',
@@ -75,9 +90,49 @@ const exercise = [
 ];
 
 app.get("/exercises", function(req, res){
-    res.send(exercise)
+    const collection = req.app.locals.collection;
+    collection.find({}).toArray(function(err, exercise){
+        if(err) return console.log(err);
+        res.send(exercise)
+    });
 });
 
-app.listen(4000, function(){
-    console.log("The server is waiting for a connection...");
+app.post("/exercises", function (req, res) {
+
+    if(!req.body) return res.sendStatus(400);
+  
+    const exerciseValue = req.body;
+  
+    // const exercise = {
+    //     nameExercise: exerciseValue
+    // };
+
+    const collection = req.app.locals.collection;
+    collection.insertOne(exerciseValue, function(err, result){
+      if(err) return console.log(err);
+      res.send(exerciseValue);
+    });
+  });
+
+app.put(`/exercises` , function(req, res){
+    if(!req.body) return res.sendStatus(400);
+    const id = new objectId(req._id);
+    const userEmail = req.body.body.email;
+    const userPassword = req.body.password;
+
+    const weightOfUser = req.body.body.weight;
+
+    console.log(weightOfUser);
+    const collection = req.app.locals.collection;
+    collection.findOneAndUpdate({/*_id: id*/ email: userEmail , password: userEmail}, { $set: {weight: weightOfUser}},
+        {returnOriginal: false }, function(err, result){
+            if(err) return console.log(err);
+            res.send(result);
+        });
 });
+
+process.on("SIGINT", () => {
+    dbClient.close();
+    process.exit();
+  });
+  

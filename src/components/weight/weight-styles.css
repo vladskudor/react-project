@@ -1,0 +1,24 @@
+.main-block-signup{
+    display: flex;
+    justify-content: center;
+}
+
+.block-buttons{
+    background: none;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    margin: 10px 0;
+}
+
+.block-buttons button{
+    border-radius: 10px;
+}
+
+.block-buttons button:first-child{
+    margin: 0 10px 0 0;
+}
+
+b{
+    color: #fff;
+}

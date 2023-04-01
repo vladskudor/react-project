@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './results-styles.css';
 import {Link} from 'react-router-dom';
+import Result from './Result';
 
 export default class Lcomponent extends Component {
     constructor(props) {
@@ -33,6 +34,8 @@ export default class Lcomponent extends Component {
 
     newTraining(){
         localStorage.removeItem('repetition');
+        localStorage.removeItem('currentTraining');
+        localStorage.removeItem('training');
         localStorage.removeItem('results');
         localStorage.removeItem('days');
     }
@@ -46,43 +49,15 @@ export default class Lcomponent extends Component {
                 </div>
                 <div className="list-results">
                     {items && items.map((item, index) => (
-                        <div className="block-current-result" key={index}>
-                            <div className="trining-Info-block">
-                                Training: {item.nameOfTraining}
-                            </div>
-                            <div className="trining-Info-block">
-                                <div>Day: </div>
-                                <div>{item.day}</div>
-                            </div>
-                            <div className="trining-Info-block">
-                                <div>Date: </div>
-                                <div>{item.date.day}.{item.date.month}.{item.date.year}</div>
-                            </div>
-                            <div className="trining-Info-block">
-                                <div>Number of repetitions: </div>
-                                <div>{item.numberOfRepetitions}</div>
-                            </div>
-                            <div className="trining-Info-block">
-                                <div>Number of sets: </div>
-                                <div>{item.numberOfSets}</div>
-                            </div>
-                            <div className="trining-Info-block">
-                                <div>Repetition done:</div>
-                                <div>{item.repetitionDone}</div>
-                            </div>
-                            <div className="trining-Info-block">
-                                <div>Amount done: </div>
-                                <div>{item.amountDone}</div>
-                            </div>
-                        </div>
+                      <Result key={index} item={item}/>  
                     ))}
                 </div>
                 <div className="button-new-training">
                     <Link to="/">
                         <button onClick={this.newTraining}>Delete</button>
-                        <Link to="/">
-                            <button>start</button>
-                        </Link>
+                    </Link>
+                    <Link to="/">
+                        <button>start</button>
                     </Link>
                 </div>
             </div>

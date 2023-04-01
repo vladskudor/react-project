@@ -23,6 +23,7 @@ export default class Rcomponent extends Component {
     done() {
         let training = JSON.parse(localStorage.getItem('training'));
         let repetition = JSON.parse(localStorage.getItem('repetition'));
+        let currentTraining = JSON.parse(localStorage.getItem('currentTraining'));
         let trainingResult = {
             nameOfTraining: training.nameTraining,
             numberOfSets: training.numberOfSets,
@@ -37,11 +38,22 @@ export default class Rcomponent extends Component {
             repetitionDone: repetition,
             img: training.img
         };
+
         if (!repetition || this.state.amountDone === 0) return;
+
         const obj = [...this.state.obj , trainingResult];
         this.setState({obj: obj});
-        console.log(obj);
-        localStorage.setItem('results', JSON.stringify(obj))
+        if (repetition === '10-approach'){
+            if(training.day === 10){
+                alert('Done');
+                training.day = 0;
+                localStorage.setItem('training' , JSON.stringify(training));
+            }
+            training.day++;
+            localStorage.setItem('currentTraining' , JSON.stringify(training));
+            localStorage.setItem('training' , JSON.stringify(training));
+        }
+        localStorage.setItem('results', JSON.stringify(obj));
     }
 
     render() {
@@ -51,9 +63,7 @@ export default class Rcomponent extends Component {
                     <h1>You need to do!</h1>
                     <div>
                         <h1>
-                            <div>
-                                <Tcomponent/>
-                            </div>
+                            <Tcomponent />
                         </h1>
                     </div>
                     <div className="exercise-block-action">

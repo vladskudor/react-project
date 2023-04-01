@@ -83,7 +83,10 @@ button:hover{
     font-weight: bolder;
     font-size: calc(16px + (28 - 16) * (100vw - 320px) / (1200 - 320));
     width: 250px;
+    display: flex;
+    flex-direction: column;
 }
+
 .training-info{
     width: 50%;
     margin: 0 auto;
